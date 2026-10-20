@@ -351,7 +351,7 @@ a:focus-visible{
     transition: padding .25s;
 }
 
-.ejercicio:hover, .ejercicio:focus-visible{
+.ejercicio:hover, .ejercicio:focus-within{
     padding-left: .75rem;
 }
 
@@ -384,6 +384,40 @@ a:focus-visible{
 
 .ejercicio__ver{
     font-weight: 500;
+    justify-self: start;
+}
+.obra__titulo a, .ejercicio__titulo a{
+    text-decoration: none;
+}
+
+.obra__titulo a:hover, .ejercicio__titulo a:hover{
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+/* VISTA PREVIA DE EJERCICIOS */
+.vista{
+    display: none;
+}
+
+.vista__titulo{
+    margin-bottom: .75rem;
+    font-size: .8rem;
+    letter-spacing: .08em;
+    color: var(--gris);
+}
+
+.vista__marco{
+    width: 100%;
+    height: 75vh;
+    border: 1px solid var(--texto);
+    border-radius: .6rem;
+    background: var(--placa);
+}
+
+.ejercicio.activo{
+    padding-left: .75rem;
+    border-bottom-color:var(--texto);
 }
 
 .etiqueta{
@@ -565,6 +599,33 @@ a:focus-visible{
     .perfil{
         grid-template-columns: 1fr 1fr;
         gap: 5rem;
+    }
+}
+
+/* ESCRITORIO GRANDE */
+@media (min-width:1024px){
+    .ejercicios-vista{
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 3rem;
+        align-items: start;
+    }
+
+    .ejercicio{
+        grid-template-columns: 1fr;
+        align-items: start;
+        gap: .6rem;
+        cursor: pointer;
+    }
+
+    .ejercicio__tags{
+        justify-content: flex-start;
+    }
+
+    .vista{
+        display: block;
+        position: sticky;
+        top: 6rem;
     }
 }
 
